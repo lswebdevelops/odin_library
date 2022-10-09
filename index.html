@@ -19,7 +19,23 @@
        </div>
     </div><!-- end nav -->
     <div class="container2">
-        <button id="addBtn" class="addingBooksBtn"><strong>+</strong> Add book</button>
+    <form  >
+            <p>Title:</p>
+            <input type='text' name='title' id='titleInput'  required>
+            <p>Author:</p>
+            <input type='text' name='author' id='authorInput' required>
+            <p>Pages:</p>
+            <input type='number' name='pages' id='pagesInput' required>
+            <br>
+            <input type="radio" id="readInput" name="read" value="read" required>
+                 <label for="read">Read</label>
+            <input type="radio" id="unreadInput" name="read" value="unread" required>
+                <label for="unread">Not Read</label><br>
+            <button type='submit' name='submit' id="addBtn"
+                class="addingBooksBtn"><strong>+</strong> Add book</button>
+        </form>
+        
+       
         <div class="container">
         </div> <!-- end container -->
     </div> <!-- end container2 -->
