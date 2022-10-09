@@ -70,9 +70,19 @@ body{
     background-color: var(--background-color);
 }
 
-h1{
-    font-size: 2rem;
+.nav{
+    display: flex;
+    justify-content: space-between;
     padding: 15px;
+    align-items: center;
+    height:100px;
+    background-color: var(--nav-background-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+h1{
+    font-size: 2.5rem;
+    padding: 15px;
+    font-weight: 900;
 }
 /* buttons */
 .buttons{
@@ -83,7 +93,7 @@ h1{
 .account, .logging{
     background-color: var(--buttons-background-color);
     border-radius: 5px;
-    border: solid gray 1px;
+    border: solid rgb(178, 176, 176) 1px;
     width: 150px;
     height: 50px;
     font-size: 1.2rem;
@@ -92,14 +102,11 @@ h1{
     .account:hover, .logging:hover, .addingBooksBtn:hover{
         background-color: var(--hover-addingBooks);
     }
+   
 .account{
     display: none;
 }
-.nav{
-    height:150px;
-    background-color: var(--nav-background-color);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+
 .container2{
  
     padding-top:20px;
@@ -137,8 +144,9 @@ h1{
 /*  after clicking on '+ add book' */
 .container{
     padding-top: 15px;
+    padding-left:20px;
     padding-bottom:75px ;
-    justify-content: center;
+    justify-content: start;
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
@@ -149,9 +157,8 @@ h1{
     gap: 8px;
     align-items: center;
     padding: 15px;
-    background-color: firebrick;
-    width: 250px;
-    height: 250px;
+      width: 350px;
+    height: 300px;
     border: none;
     border-radius: 5px;
     background-color: white;    
@@ -169,14 +176,74 @@ h1{
     font-size: 1.5rem;
     border-radius: 5px;
     width: 250px;
+  border:none;
    
-
+}
+.bookRead{
+background-color: rgb(159, 255, 156);
 }
 .bookUnRead{
-    background-color: red;
+    background-color: rgb(255, 156, 156);
     height: 50px;
     width: 250px;
     font-size: 1.5rem;
     border-radius: 5px;
+  border:none;
+}
+
+/*  SINGLE CATEGORY PAGE */
+
+
+
+
+/* END SINGLE CATEGORY PAGE */
+/********** Large devices only **********/
+@media (min-width: 1200px) {
   
 }
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+}
+
+/********** Small devices only **********/
+@media (min-width: 831px) and (max-width: 991px) {
+  
+    
+}
+/********** Extra small devices only **********/
+@media (max-width: 830px) {
+    h1{
+        font-size: 1.5rem;
+      }
+
+      .container{
+       
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;    
+
+    }
+    .content{
+       
+        width: 450px;
+        height: 300px;
+    
+    }
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 580px) {
+  h1{
+    font-size: 1.5rem;
+  }
+  .logging{
+    width: 100px;
+  }
+  .content{
+       
+    width: 350px;
+    height: 300px;
+
+}
+}
+
+

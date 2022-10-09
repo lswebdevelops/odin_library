@@ -30,6 +30,7 @@ function Books(title, autor,  pages, read){
 // creating div under .container:
 const addBook = document.querySelector('#addBtn');
 addBook.addEventListener("click", addBookToLibrary);
+
 function addBookToLibrary(){
    
 // adding a container div for the content of the books added
@@ -38,28 +39,28 @@ const content = document.createElement('div');
 content.classList.add('content');
 containerDiv.appendChild(content);
 
-// adding the title of the book 
+// adding  title of the book 
 const bookTitle = document.createElement("p");
 bookTitle.classList.add('bookTitle');
 bookTitle.textContent ='"The Hobbit 2"'
 content.appendChild(bookTitle);
-// adding the autor 
+// adding  autor 
 const bookAuthor = document.createElement('p')
 bookAuthor.classList.add("bookAuthor")
 bookAuthor.textContent ="The Hobbit's writer"
 content.appendChild(bookAuthor);
-
-// adding the pages
+// adding pages
 const bookPages = document.createElement('p')
 bookPages.classList.add("bookPages")
 bookPages.textContent ="333 pages"
 content.appendChild(bookPages);
-// adding button 'read/not read'
+// adding button 'read'
 const bookRead = document.createElement('button')
 bookRead.classList.add("bookRead")
 bookRead.textContent ="Read"
 content.appendChild(bookRead);
 
+// adding button 'not read'
 const bookUnRead = document.createElement('button')
 bookUnRead.classList.add("bookUnRead")
 bookUnRead.textContent ="Not read"
