@@ -118,16 +118,15 @@ h1{
 }
 
 .footer{
-    box-shadow: 20px 20px 50px 10px var(--hover-addingBooks) inset;
-    padding-top:13px;
+   
     position: absolute;
     bottom: 0;
     font-size: 1.2rem;
     font-weight: 700;
     left: 0;
     right: 0;
-    height:25px;
-    background:var(--nav-background-color);
+    height:35px;
+    
 }
 .fa-github{
     color: black;
@@ -138,7 +137,7 @@ h1{
 /*  after clicking on '+ add book' */
 .container{
     padding-top: 15px;
-    padding-bottom:25px ;
+    padding-bottom:75px ;
     justify-content: center;
     display: flex;
     gap: 25px;
