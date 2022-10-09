@@ -1,60 +1,58 @@
-let myLibrary = [];
-
-
-function Book(title, author, pages, read, unread){
+function Book(title, author, pages, read){
       
     this.title = title
-    this.autor = author
+    this.author = author
     this.pages = pages
     this.read = read  
-    this.unread = unread  
+  
 
 }
 
 
 function addBookToLibrary(){
-
+    this.books =[];
     this.addBooks = function(books){
         this.books.push(books)
     }
 }
  // new book object
- let book = new Book();
+ let book = new addBookToLibrary();
 
 // adding book's info to html>div
 
 function addToHtml(){
+    // where it will be added to > the container
+    let containerDiv = document.querySelector(".container");
+    // creating div inside the container:
+    const content = document.createElement('div');
+    content.classList.add('content');
+    
     for(let i = 0; i <book.books.length; i++){
-        // where it will be added to > the container
-        let newBook = document.querySelector(".container");
-        // creating div inside the container:
-        const content = document.createElement('div');
-        content.classList.add('content');
         containerDiv.appendChild(content);
         // creating the item in the content div
         let title = document.createElement('p');
         let author =document.createElement('p');
         let pages =document.createElement('p');
         let read =document.createElement('button');
-        let unread = document.createElement('button');
+        
         // taking the values from the array
         let book_title = book.books[i].title;
         let book_author = book.books[i].author;
         let book_pages = book.books[i].pages;
         let book_read = book.books[i].read;
-        let book_unread = book.books[i].unread;
+        
         // adding text to the items just created
         title.textContent=book_title;
-        title.textContent=book_author;
-        title.textContent=book_pages;
-        title.textContent=book_read;
-        title.textContent=book_unread;
+        author.textContent=book_author;
+        pages.textContent=book_pages;
+        read.textContent=book_read;
+        
         //appending the children to .content
-        newBook.appendChild(title);
-        newBook.appendChild(author);
-        newBook.appendChild(pages);
-        newBook.appendChild(read);
-        newBook.appendChild(unread);
+        content.appendChild(title);
+        content.appendChild(author);
+        content.appendChild(pages);
+        content.appendChild(read);
+       
 
     }
 }
@@ -67,10 +65,10 @@ addingBookButton.addEventListener('click' , function getTarget(e){
     let jsAuthorInput = document.getElementById('authorInput').value;
     let jsPagesInput = document.getElementById('pagesInput').value;
     let jsReadInput = document.getElementById('readInput').value;
-    // let jsNotReadInput = document.getElementById('unreadInput').value;
+  
 
-    let newBookf = new Book(jsTitleInput, jsAuthorInput,jsPagesInput, jsReadInput);
-    book.addBooks(newBookf);
+    let newBook = new Book(jsTitleInput, jsAuthorInput,jsPagesInput, jsReadInput);
+    book.addBooks(newBook);
     addToHtml();
 })
 
