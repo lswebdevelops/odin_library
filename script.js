@@ -1,19 +1,24 @@
-function Book(title, author, pages, read){
+function Book(title, author, pages, read, unread){
       
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read  
-  
+    this.unread = unread  
 
 }
+
 
 
 function addBookToLibrary(){
     this.books =[];
     this.addBooks = function(books){
+        // deletes the last properties added to the array books.
+        this.books.pop();
+        // adds the newest properties added from the user
         this.books.push(books)
     }
+   
 }
  // new book object
  let book = new addBookToLibrary();
@@ -21,6 +26,9 @@ function addBookToLibrary(){
 // adding book's info to html>div
 
 function addToHtml(){
+
+    //  
+     
     // where it will be added to > the container
     let containerDiv = document.querySelector(".container");
     // creating div inside the container:
@@ -34,28 +42,45 @@ function addToHtml(){
         let author =document.createElement('p');
         let pages =document.createElement('p');
         let read =document.createElement('button');
+        let unread =document.createElement('button');
+       
         
         // taking the values from the array
         let book_title = book.books[i].title;
         let book_author = book.books[i].author;
         let book_pages = book.books[i].pages;
         let book_read = book.books[i].read;
-        
+        let book_unread = book.books[i].unread;
+
+        //  excluding the item in the last array
+       
         // adding text to the items just created
         title.textContent=book_title;
         author.textContent=book_author;
         pages.textContent=book_pages;
         read.textContent=book_read;
+        unread.textContent=book_unread;
+
         
         //appending the children to .content
         content.appendChild(title);
         content.appendChild(author);
         content.appendChild(pages);
         content.appendChild(read);
-       
+        content.appendChild(unread);
 
+        // adding classes to it
+        title.classList.add('bookTitle');
+        author.classList.add("bookAuthor");
+        pages.classList.add("bookPages");
+        read.classList.add("bookRead");
+        unread.classList.add("bookUnRead")
+
+         
     }
 }
+
+
 //adding book button
 let addingBookButton = document.getElementById('addBtn');
 addingBookButton.addEventListener('click' , function getTarget(e){
@@ -64,13 +89,37 @@ addingBookButton.addEventListener('click' , function getTarget(e){
     let jsTitleInput = document.getElementById('titleInput').value;
     let jsAuthorInput = document.getElementById('authorInput').value;
     let jsPagesInput = document.getElementById('pagesInput').value;
-    let jsReadInput = document.getElementById('readInput').value;
-  
 
+    // getting input from radio buttons from user> read || not_read
+    let form  = document.getElementById('form')
+   
+    let jsReadInput = form.elements["read"].value;
+   
+    // console.log(jsTitleInput);
+    // console.log(jsAuthorInput);
+    // console.log(jsPagesInput);
+    // console.log(jsReadInput);
+    
+    
     let newBook = new Book(jsTitleInput, jsAuthorInput,jsPagesInput, jsReadInput);
+    
     book.addBooks(newBook);
     addToHtml();
+   
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
