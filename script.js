@@ -1,10 +1,10 @@
-function Book(title, author, pages, read, unread){
+function Book(title, author, pages, read){
       
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read  
-    this.unread = unread  
+   
 
 }
 
@@ -29,6 +29,9 @@ function addToHtml(){
 
     //  
      
+// remove button
+
+
     // where it will be added to > the container
     let containerDiv = document.querySelector(".container");
     // creating div inside the container:
@@ -42,7 +45,10 @@ function addToHtml(){
         let author =document.createElement('p');
         let pages =document.createElement('p');
         let read =document.createElement('button');
-        let unread =document.createElement('button');
+        //adding delete button
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent= "Delete";
+        deleteBtn.classList.add("bookDelete")
        
         
         // taking the values from the array
@@ -50,7 +56,9 @@ function addToHtml(){
         let book_author = book.books[i].author;
         let book_pages = book.books[i].pages;
         let book_read = book.books[i].read;
-        let book_unread = book.books[i].unread;
+     
+
+       
 
         //  excluding the item in the last array
        
@@ -59,27 +67,29 @@ function addToHtml(){
         author.textContent=book_author;
         pages.textContent=book_pages;
         read.textContent=book_read;
-        unread.textContent=book_unread;
-
-        
+                
         //appending the children to .content
         content.appendChild(title);
         content.appendChild(author);
         content.appendChild(pages);
         content.appendChild(read);
-        content.appendChild(unread);
-
+        content.appendChild(deleteBtn);
+       
         // adding classes to it
         title.classList.add('bookTitle');
         author.classList.add("bookAuthor");
         pages.classList.add("bookPages");
-        read.classList.add("bookRead");
-        unread.classList.add("bookUnRead")
 
-         
+        // conditionals > changes the class accourding the user's input: read/not read
+        if(book.books[i].read === 'read'){
+            read.classList.add("bookRead");
+        }
+        else{
+            read.classList.add("bookUnRead");
+        }
+                  
     }
 }
-
 
 //adding book button
 let addingBookButton = document.getElementById('addBtn');
@@ -88,87 +98,15 @@ addingBookButton.addEventListener('click' , function getTarget(e){
     // getting input from user
     let jsTitleInput = document.getElementById('titleInput').value;
     let jsAuthorInput = document.getElementById('authorInput').value;
-    let jsPagesInput = document.getElementById('pagesInput').value;
+    let jsPagesInput = document.getElementById('pagesInput').value + " pages";
 
     // getting input from radio buttons from user> read || not_read
     let form  = document.getElementById('form')
-   
     let jsReadInput = form.elements["read"].value;
-   
-    // console.log(jsTitleInput);
-    // console.log(jsAuthorInput);
-    // console.log(jsPagesInput);
-    // console.log(jsReadInput);
-    
-    
+       
     let newBook = new Book(jsTitleInput, jsAuthorInput,jsPagesInput, jsReadInput);
-    
+  
     book.addBooks(newBook);
     addToHtml();
    
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // creating div under .container:
-// const addBook = document.querySelector('#addBtn');
-// addBook.addEventListener("click", addBookToLibrary2);
-
-// function addBookToLibrary2(){
-   
-// // adding a container div for the content of the books added
-// const containerDiv = document.querySelector('.container');
-// const content = document.createElement('div');
-// content.classList.add('content');
-// containerDiv.appendChild(content);
-
-// // adding  title of the book 
-// const bookTitle = document.createElement("p");
-// bookTitle.classList.add('bookTitle');
-// bookTitle.textContent ='"The Hobbit 2"'
-// content.appendChild(bookTitle);
-// // adding  autor 
-// const bookAuthor = document.createElement('p')
-// bookAuthor.classList.add("bookAuthor")
-// bookAuthor.textContent ="The Hobbit's writer"
-// content.appendChild(bookAuthor);
-// // adding pages
-// const bookPages = document.createElement('p')
-// bookPages.classList.add("bookPages")
-// bookPages.textContent ="333 pages"
-// content.appendChild(bookPages);
-// // adding button 'read'
-// const bookRead = document.createElement('button')
-// bookRead.classList.add("bookRead")
-// bookRead.textContent ="Read"
-// content.appendChild(bookRead);
-
-// // adding button 'not read'
-// const bookUnRead = document.createElement('button')
-// bookUnRead.classList.add("bookUnRead")
-// bookUnRead.textContent ="Not read"
-// content.appendChild(bookUnRead);
-
-
-// // adding button 'remove'
-// const bookDelete = document.createElement('button')
-// bookDelete.classList.add("bookDelete")
-// bookDelete.textContent ="Delete"
-// content.appendChild(bookDelete);
-// };
-

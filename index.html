@@ -19,21 +19,38 @@
        </div>
     </div><!-- end nav -->
     <div class="container2">
-    <form id="form" >
-            <p>Title:</p>
-            <input type='text' name='title' id='titleInput'  required>
-            <p>Author:</p>
-            <input type='text' name='author' id='authorInput' required>
-            <p>Pages:</p>
-            <input type='number' name='pages' id='pagesInput' required>
-            <br>
-            <input type="radio" id="readInput" name="read" value="read" required>
-                 <label for="read">Read</label>
-            <input type="radio" id="unreadInput" name="read" value="not read" required>
-                <label for="unread">Not Read</label><br>
+    <div class="formDiv">
+        <form id="form" >
+            <div class="labels">
+             <p>Title:</p>
+             <p>Author:</p>
+             <p>Pages:</p>
+             <br class="hrRead">
+             <p>Read:</p>
+            </div>
+ 
+            <div class="inputs">
+             <input type='text' maxlength="20" name='title' id='titleInput'  required>
+             <input type='text' maxlength="20" name='author' id='authorInput' required>
+             <!--  using js to set the maximum length of numbers of pages per book -->
+             <input name="pages" id='pagesInput' oninput="javascript: if (this.value.length > 
+             this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number"  maxlength = "4"/>
+             
+                <br >
+             <div class="reading">
+                 <input type="radio" id="readInput" name="read" checked value="read" required>
+                  <label class="read" for="read">Yes</label>
+             <input type="radio" id="unreadInput" name="read" value="not read" required>
+                 <label class="unread" for="unread">Not yet</label><br>
+             </div>
+ 
+            </div>
+ 
+         </form>
+    </div>
+        <hr>
             <button type='submit' name='submit' id="addBtn"
                 class="addingBooksBtn"><strong>+</strong> Add book</button>
-        </form>
         
        
         <div class="container">
