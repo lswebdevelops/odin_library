@@ -45,23 +45,23 @@ function addToHtml(){
         let author =document.createElement('p');
         let pages =document.createElement('p');
         let read =document.createElement('button');
+        // adding an <hr>
+        let hr = document.createElement('hr')
+        hr.classList.add("hr");
         //adding delete button
-        let deleteBtn = document.createElement("button");
+         let deleteBtn = document.createElement("button");
         deleteBtn.textContent= "Delete";
         deleteBtn.classList.add("bookDelete")
        
-        
+               
         // taking the values from the array
         let book_title = book.books[i].title;
         let book_author = book.books[i].author;
         let book_pages = book.books[i].pages;
         let book_read = book.books[i].read;
      
+      
 
-       
-
-        //  excluding the item in the last array
-       
         // adding text to the items just created
         title.textContent=book_title;
         author.textContent=book_author;
@@ -74,7 +74,42 @@ function addToHtml(){
         content.appendChild(pages);
         content.appendChild(read);
         content.appendChild(deleteBtn);
-       
+        content.appendChild(hr);
+
+       // /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*
+// https://stackoverflow.com/questions/59875808/deleting-newly-added-elements-by-adding-event-listeners-to-them
+const ul = document.querySelector('.hr');
+
+//Creating delete button
+function createDeleteButton() {
+  const delButton = document.createElement("button");
+  delButton.classList.add("bookDelete");
+  delButton.type = 'button';
+  delButton.appendChild(document.createTextNode("Delete"));
+  return delButton;
+}
+
+// event listener that removes list element when button is clicked
+function deleteListElement(event) {
+  const {
+    target: btn
+  } = event; // get the target property from the event object as a local variable btn
+  if (btn.matches('button.bookDelete')) {
+    btn.closest('hr').removeChild(btn.parentElement);
+  }
+}
+
+ul.addEventListener('click', deleteListElement);
+
+document.getElementById('addListElement').addEventListener('click', function() {
+  const para = document.createElement('p');
+  para.classList.add('pDelete')
+  const btn = createDeleteButton();
+  para.appendChild(btn);
+  ul.appendChild(para);
+})
+
+// /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*
         // adding classes to it
         title.classList.add('bookTitle');
         author.classList.add("bookAuthor");
@@ -110,3 +145,4 @@ addingBookButton.addEventListener('click' , function getTarget(e){
     addToHtml();
    
 })
+

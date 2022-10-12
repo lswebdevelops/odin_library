@@ -251,6 +251,9 @@ hr{
     box-shadow: 3px 2px 5px rgba(5,5,5,0.1);
 }
 
+
+
+
 /*  SINGLE CATEGORY PAGE */
 
 
@@ -266,11 +269,22 @@ hr{
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
   
+    .content{
+       
+        width: 430px;
+        height: 300px;
+    
+    }
 }
 
 /********** Small devices only **********/
 @media (min-width: 831px) and (max-width: 991px) {
-  
+    .content{
+       
+        width: 360px;
+        height: 300px;
+    
+    }
     input{
         width: 450px;
     }
