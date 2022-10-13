@@ -10,53 +10,32 @@
     <title>The Odin Library</title>
 </head>
 <body>
-   <div class="allContainer">
-    <div class="nav">
-        <h1>The Odin Library</h1>
-       <div class="buttons">
-        <button class="account">Account</button>
-        <button class="logging">Log in</button>
-        <button id="addListElement" type="button">Add item</button>
-       </div>
-    </div><!-- end nav -->
-    <div class="container2">
-    <div class="formDiv">
-        <form id="form" >
-            <div class="labels">
-             <p>Title:</p>
-             <p>Author:</p>
-             <p>Pages:</p>
-             <br class="hrRead">
-             <p>Read:</p>
-            </div>
- 
-            <div class="inputs">
-             <input type='text' maxlength="20" name='title' id='titleInput'  required>
-             <input type='text' maxlength="20" name='author' id='authorInput' required>
-             <!--  using js to set the maximum length of numbers of pages per book -->
-             <input name="pages" id='pagesInput' oninput="javascript: if (this.value.length > 
-             this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number"  maxlength = "4"/>
-             
-                <br >
-             <div class="reading">
-                 <input type="radio" id="readInput" name="read" checked value="read" required>
-                  <label class="read" for="read">Yes</label>
-             <input type="radio" id="unreadInput" name="read" value="not read" required>
-                 <label class="unread" for="unread">Not yet</label><br>
-             </div>
- 
-            </div>
- 
-         </form>
-    </div>
-        <hr>
-            <button type='submit' name='submit' id="addBtn"
-                class="addingBooksBtn"><strong>+</strong> Add book</button>
+    <h1>The Odin Library</h1>
+    <div id='newBtn-Container'>
+        <button id='newBtn'>+ New Book</button>
         
-       
-        <div class="container">
-        </div> <!-- end container -->
-    </div> <!-- end container2 -->
+    </div>
+    <hr>
+     <div id="popUp">
+        <form id='form' action='/Script.js'>
+            <span class="close">&times;</span>
+            <ledgend>New Book</ledgend>
+            <div id='textInput'> 
+                <p><input type='text' id='title' maxlength="40" name='title' placeholder='Title'></p>
+                <p><input type='text' id='author'  maxlength="40" name='author' placeholder='Author'></p>
+                <p>
+                <!--  using js to set the maximum length of numbers of pages per book -->
+             <input name="pages"  oninput="javascript: if (this.value.length > 
+             this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+             type = "number"  maxlength = "4" id='pages' name='pages' placeholder='Pages'/></p>
+            </div>
+            <div id='checkBox'>
+                <p><label >Read: </label><input type='checkbox' id='read' name='read' value='yes'></p>
+            </div>
+            <button type='submit' form='form' id='addBtn'>Add</button>
+        </form>
+    </div>
+    <div id='Library-container'></div>
 
 
   <div class="footer">
