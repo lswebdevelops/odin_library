@@ -236,6 +236,7 @@ h1{
     padding: 20px;
     border:none;
     width: 30%; 
+    min-width: 300px;
     }
     
     /* The Close Button */

@@ -26,8 +26,20 @@ let newBook;
 
 function addBookToLibrary(){
     event.preventDefault();
-    popUpForm.style.display= "none";
 
+    if (form.title.value===""){
+        alert('Please enter a title for the book');
+        return;
+    }
+    if (form.author.value===""){
+        alert('Please enter an author for the book');
+        return;
+    }
+    if (form.pages.value==="" || form.pages.value <= 0){
+        alert('Please enter the number of pages for the book');
+        return;
+    }
+    popUpForm.style.display= "none";
     newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     render();
